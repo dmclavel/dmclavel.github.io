@@ -118,6 +118,7 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
     const navTop = nav.offset().top;
 
     $(window).on('scroll', stickyNavigation);
+    checkActiveLink();
 
     function stickyNavigation() {
         const body = $('body');
