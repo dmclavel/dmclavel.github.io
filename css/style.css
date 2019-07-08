@@ -318,7 +318,7 @@ body { /* Default styles */
     left: -200px;
 }
 
-.items .project-link {
+.items .github-link {
     float: right;
     right: -200px;
 }
@@ -327,7 +327,7 @@ body { /* Default styles */
     left: 0;
 }
 
-.items .item:hover .project-link {
+.items .item:hover .github-link {
     right: 0;
 }
 
@@ -344,13 +344,59 @@ body { /* Default styles */
 }
 
 .copyright-section {
-    background-color: #2d3436;
+    background-color: #252525;
     color: #fff;
     padding: 30px 5px;
 }
 
 .copyright-section p {
     margin: 0;
+}
+
+.copyright-section p span {
+    opacity: 0.65;
+}
+
+.copyright-section p .colored {
+    color: #546de5;
+}
+
+.copyright-section .social-section {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.copyright-section .social-section a:hover {
+    text-decoration: none;
+}
+
+.copyright-section .social-section a:hover .bg-wrap {
+    background-color: #546de5;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
+
+    -webkit-transition: all 0.2s linear, 0.5s;
+    -moz-transition: all 0.2s linear, 0.5s;
+    -o-transition: all 0.2s linear, 0.5s;
+    -ms-transition: all 0.2s linear, 0.5s;
+    transition: all 0.2s linear, 0.5s;
+}
+
+.copyright-section .social-section .bg-wrap {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0.5rem;
+    padding: 1.1rem 1.5rem;
+    background-color: #353535;
+}
+
+.copyright-section .social-section .bg-wrap i {
+    color: #FFF;
+    font-size: 1.5rem;
 }
 
 #navigation {
