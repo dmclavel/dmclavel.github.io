@@ -129,5 +129,47 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
             body.css('padding-top', 0);
             body.removeClass('fixed-nav');
         }
+
+        checkActiveLink();
     }
 });
+
+function checkActiveLink() {
+    const aboutTop = $('#about').offset().top;
+    const skillsTop = $('#skills').offset().top;
+    const statsTop = $('#stats').offset().top;
+    const contactTop = $('#contact').offset().top;
+    const portfolioTop = $('#portfolio').offset().top;
+    
+    if ($(window).scrollTop() >= aboutTop - 100 && $(window).scrollTop() < aboutTop + 100) {
+        applyActiveClass('about');
+    }
+
+    if ($(window).scrollTop() >= skillsTop - 100 && $(window).scrollTop() < skillsTop + 100) {
+        applyActiveClass('skills');
+    }
+
+    if ($(window).scrollTop() >= statsTop - 100 && $(window).scrollTop() < statsTop + 100) {
+        applyActiveClass('stats');
+    }
+
+    if ($(window).scrollTop() >= contactTop - 100 && $(window).scrollTop() < contactTop + 100) {
+        applyActiveClass('contact');
+    }
+
+    if ($(window).scrollTop() >= portfolioTop - 100 && $(window).scrollTop() < portfolioTop + 100) {
+        applyActiveClass('portfolio');
+    }
+}
+
+function applyActiveClass(type) {
+    $('#navigation ul li a').each(function() {
+        const selector = $(this).attr('data-filter');
+
+        if (type === selector) {
+            $(this).addClass('active');
+        } else {
+            $(this).removeClass('active');
+        }
+    });
+}

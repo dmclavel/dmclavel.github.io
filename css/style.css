@@ -406,11 +406,22 @@ body { /* Default styles */
 }
 
 #navigation li {
-    padding: 0 10px;
+    margin: 0 10px;
 }
 
 #navigation li a {
     color: #fff;
+}
+
+#navigation .active {
+    border-bottom: 2px solid #fff;
+    width: auto;
+
+    -webkit-transition: all 1s linear, 0.5s;
+    -moz-transition: all 1s linear, 0.5s;
+    -o-transition: all 1s linear, 0.5s;
+    -ms-transition: all 1s linear, 0.5s;
+    transition: all 1s linear, 0.5s;
 }
 
 .navbar-brand,
@@ -458,5 +469,9 @@ body { /* Default styles */
 
     .slides-navigation {
         display: none;
+    }
+
+    #navigation li a {
+        display: inline-block;
     }
 }
