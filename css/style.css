@@ -248,6 +248,7 @@ body { /* Default styles */
 
 .items li img {
     width: 100%;
+    height: 15rem;
 
     -webkit-transition: all 0.2s linear, 1s;
     -moz-transition: all 0.2s linear, 1s;
