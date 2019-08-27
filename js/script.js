@@ -133,6 +133,13 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
 
         checkActiveLink();
     }
+
+    $('#github-click').on('click', function () {
+        console.log('CLicked');
+        window.dataLayer.push({
+            'dateClicked': new Date().toString()
+        });
+    });
 });
 
 function checkActiveLink() {
