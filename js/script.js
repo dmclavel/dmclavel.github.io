@@ -135,8 +135,8 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
     }
 
     $('#github-click').on('click', function () {
-        console.log('CLicked');
         window.dataLayer.push({
+            'event': 'github-click',
             'dateClicked': new Date().toString()
         });
     });
