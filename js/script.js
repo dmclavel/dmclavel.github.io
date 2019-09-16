@@ -134,6 +134,48 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
         checkActiveLink();
     }
 
+    $('#contact-dmclavel').submit(function (e) {
+        e.preventDefault();
+
+        const url = 'https://api.hsforms.com/submissions/v3/integration/submit/6419045/2ddaf219-ff4c-4f1a-afb3-440946797113';
+        const formData = JSON.stringify({
+            "submittedAt": new Date().getTime(),
+            "fields": [
+                {
+                    "name": "email",
+                    "value": e.target[1].value
+                },
+                {
+                    "name": "gclid",
+                    "value": localStorage.getItem('gclid') ? localStorage.getItem('gclid').value : ''
+                },
+                {
+                    "name": "gclid-expiry",
+                    "value": localStorage.getItem('gclid') ? localStorage.getItem('gclid').expiryDate : ''
+                }
+            ],
+        });
+
+        $.ajax({
+            type: 'POST',
+            url,
+            data: formData,
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            success: function (data) {
+                console.log(data);
+            },
+            error: function(request, status, message) {
+                alert("Something went wrong. please try again. ", message, request, status);
+            },
+            complete: function () {
+
+            }
+        })
+    });
+
     $('#github-click').on('click', function () {
         window.dataLayer.push({
             'event': 'github-click',
@@ -151,6 +193,60 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
         });
     });
 });
+
+// GOOGLE'S RECOMMENDED CODE IN GETTING GCLID
+function getParam(p) {
+    var match = RegExp('[?&]' + p + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+  
+function getExpiryRecord(value) {
+    var expiryPeriod = 90 * 24 * 60 * 60 * 1000; // 90 day expiry in milliseconds
+
+    var expiryDate = new Date().getTime() + expiryPeriod;
+    return {
+        value: value,
+        expiryDate: expiryDate
+    };
+}
+  
+function addGclid() {
+    var gclidParam = getParam('gclid');
+    var gclidFormFields = [
+            'gclid_field',
+            'footerFormMessageCorporate_gclid_field',
+            'footer_salesForce_form_gclid_field',
+            'contactPageForm_gclid_field',
+            'send_to_salesForce_gclid_field',
+            'send_to_after_sales_gclid_field',
+            'accreditationForm_gclid_field'
+        ]; // all possible gclid form field ids here
+    var gclidRecord = null;
+    var currGclidFormField;
+
+    var gclsrcParam = getParam('gclsrc');
+    var isGclsrcValid = !gclsrcParam || gclsrcParam.indexOf('aw') !== -1;
+
+    gclidFormFields.forEach(function (field) {
+        if (document.getElementById(field)) {
+        currGclidFormField = document.getElementById(field);
+        }
+    });
+
+    if (gclidParam && isGclsrcValid) {
+        gclidRecord = getExpiryRecord(gclidParam);
+        localStorage.setItem('gclid', JSON.stringify(gclidRecord));
+    }
+
+    var gclid = gclidRecord || JSON.parse(localStorage.getItem('gclid'));
+    var isGclidValid = gclid && new Date().getTime() < gclid.expiryDate;
+
+    if (currGclidFormField && isGclidValid) {
+        currGclidFormField.value = gclid.value;
+    }
+}
+
+window.addEventListener('load', addGclid);
 
 function checkActiveLink() {
     const aboutTop = $('#about').offset().top;
