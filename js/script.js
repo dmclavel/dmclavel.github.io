@@ -147,11 +147,7 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
                 },
                 {
                     "name": "gclid",
-                    "value": localStorage.getItem('gclid') ? localStorage.getItem('gclid').value : ''
-                },
-                {
-                    "name": "gclid-expiry",
-                    "value": localStorage.getItem('gclid') ? localStorage.getItem('gclid').expiryDate : ''
+                    "value": e.target[0].value
                 }
             ],
         });
@@ -177,20 +173,20 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
     });
 
     $('#github-click').on('click', function () {
-        window.dataLayer.push({
-            'event': 'github-click',
-            'dateClicked': new Date().toString(),
-            'transactionId': '1001',
-            'transactionTotal': 3000,
-            'transactionProducts': [
-                {
-                    'sku': 'GH1',
-                    'name': 'Github Link Trial',
-                    'price': 3000,
-                    'quantity': 1
-                }
-            ]
-        });
+        // window.dataLayer.push({
+        //     'event': 'github-click',
+        //     'dateClicked': new Date().toString(),
+        //     'transactionId': '1001',
+        //     'transactionTotal': 3000,
+        //     'transactionProducts': [
+        //         {
+        //             'sku': 'GH1',
+        //             'name': 'Github Link Trial',
+        //             'price': 3000,
+        //             'quantity': 1
+        //         }
+        //     ]
+        // });
     });
 });
 
@@ -213,13 +209,7 @@ function getExpiryRecord(value) {
 function addGclid() {
     var gclidParam = getParam('gclid');
     var gclidFormFields = [
-            'gclid_field',
-            'footerFormMessageCorporate_gclid_field',
-            'footer_salesForce_form_gclid_field',
-            'contactPageForm_gclid_field',
-            'send_to_salesForce_gclid_field',
-            'send_to_after_sales_gclid_field',
-            'accreditationForm_gclid_field'
+            'gclid'
         ]; // all possible gclid form field ids here
     var gclidRecord = null;
     var currGclidFormField;
@@ -229,7 +219,7 @@ function addGclid() {
 
     gclidFormFields.forEach(function (field) {
         if (document.getElementById(field)) {
-        currGclidFormField = document.getElementById(field);
+            currGclidFormField = document.getElementById(field);
         }
     });
 
