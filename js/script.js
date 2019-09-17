@@ -136,8 +136,6 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
 
     $('#github-click').on('click', function () {
         window.dataLayer.push({
-            'event': 'github-click',
-            'dateClicked': new Date().toString(),
             'transactionId': '1001',
             'transactionTotal': 3000,
             'transactionProducts': [
@@ -147,7 +145,8 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
                     'price': 3000,
                     'quantity': 1
                 }
-            ]
+            ],
+            'event': 'github-click',
         });
     });
 });
