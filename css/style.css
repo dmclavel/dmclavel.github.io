@@ -88,10 +88,14 @@ body { /* Default styles */
     margin-bottom: 1rem;
 }
 
-.skills-section,
-.contact-section {
+.skills-section {
     background-color: #546de5;
     color: #fff;
+}
+
+.contact-section {
+    background-color: #fff;
+    color: #000;
 }
 
 .skill {
@@ -342,6 +346,17 @@ body { /* Default styles */
 
 .items {
     padding: 0;
+}
+
+#contact-dmclavel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+#contact-dmclavel button[type=submit] {
+    margin-top: 1rem;
 }
 
 .copyright-section {
