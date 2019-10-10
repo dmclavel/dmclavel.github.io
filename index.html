@@ -26,11 +26,17 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <!-- Start of HubSpot Embed Code -->
-        <!-- <script type="text/javascript" id="hs-script-loader" async defer src="https://js.hs-analytics.net/analytics/1568559000000/6419045.js"></script> -->
-        <!-- End of HubSpot Embed Code -->
         <script src="https://kit.fontawesome.com/60df48edb5.js"></script>
-        <!-- <script charset="utf-8" origin="anonymous" type="text/javascript" src="./js/js-form-hbspt.js"></script> -->
+        <script src="js/first-input-delay.min.js"></script>
+        <script>
+            var dataLayer = window.dataLayer || [];
+
+            dataLayer.push({
+                event: 'first-input-delay-event',
+                eventLabel: evt.type,
+                eventValue: Math.round(delay)
+            });
+        </script>
     </head>
     <body>
          <!-- Google Tag Manager (noscript) -->
@@ -327,23 +333,6 @@
             <div class="col-md-12 text-center">
                 <p class="sub-heading"> Like what you see? </p>
                 <h2> I'd love to hear from you! </h2>
-
-                <!-- <form id="contact-dmclavel">
-                    <div style="visibility: hidden;">
-                        <input type="hidden" id="gclid">
-                    </div>
-                    <input type="email" id="email" placeholder="Email">
-                    <button type="submit"> Submit </button>
-                </form> -->
-                <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
-                <div style="display: flex; justify-content: center">
-                    <script>
-                        hbspt.forms.create({
-                            portalId: "6419045",
-                            formId: "3b9c0816-88f3-4668-9f90-0f4ad2cbdf44"
-                        });
-                    </script>
-                </div>
         </div>
 
         <div id="portfolio" class="section">
@@ -516,7 +505,31 @@
                 </p>
             </div>
         </div>
-        
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-performance.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-analytics.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyCisDdbOedUEQI9JSwzBFXzzgA1GRpLxyY",
+                authDomain: "portfolio-34235.firebaseapp.com",
+                databaseURL: "https://portfolio-34235.firebaseio.com",
+                projectId: "portfolio-34235",
+                storageBucket: "portfolio-34235.appspot.com",
+                messagingSenderId: "417783244082",
+                appId: "1:417783244082:web:4fa45b3298ce53be4fa32b",
+                measurementId: "G-R8M44J1FF8"
+            };
+
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.performance();
+            firebase.analytics();
+        </script>
+        <!-- End of Firebase code -->
+
         <script src="js/jquery.superslides.min.js"></script>
         <script src="js/count-up.js"></script>
         <script src="js/count-up.min.js"></script>
@@ -530,8 +543,5 @@
         <script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
         <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
         <script src="js/script.js"></script>
-        <!-- Start of HubSpot Embed Code -->
-        <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/6419045.js"></script>
-        <!-- End of HubSpot Embed Code -->
     </body>
 </html>

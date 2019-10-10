@@ -1,3 +1,5 @@
 Vagrantfile
 
 /.vagrant
+/first-input-delay.min.js
+test.html
