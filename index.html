@@ -31,10 +31,12 @@
         <script>
             var dataLayer = window.dataLayer || [];
 
-            dataLayer.push({
-                event: 'first-input-delay-event',
-                eventLabel: evt.type,
-                eventValue: Math.round(delay)
+            perfMetrics.onFirstInputDelay(function(delay, evt) {
+                dataLayer.push({
+                    event: 'first-input-delay-event',
+                    eventLabel: evt.type,
+                    eventValue: Math.round(delay)
+                });
             });
         </script>
     </head>
