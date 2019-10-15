@@ -31,6 +31,8 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
     const analytics = firebase.analytics();
     firebase.performance();
 
+    analytics.logEvent('page_view');
+
     $('#slides').superslides({
         animation: 'fade',
         play: 4000,
