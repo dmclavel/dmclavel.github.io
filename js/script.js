@@ -28,8 +28,8 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
 
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    firebase.performance();
     const analytics = firebase.analytics();
+    firebase.performance();
 
     $('#slides').superslides({
         animation: 'fade',
