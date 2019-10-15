@@ -205,8 +205,8 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
             ]
         });
 
-        analytics.logEvent('ecommerce_purchase', {
-            currency: 3000, transaction_id: '1001'
+        analytics.logEvent('purchase', {
+            transaction_id: '1001', value: 3000, currency: 'PHP', tax: 0, shipping: 0, items: 1, coupon: 'NA'
         });
     });
 });
