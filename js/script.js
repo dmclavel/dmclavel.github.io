@@ -14,6 +14,23 @@ $(window).on('load', function() {
 });
 
 $(document).ready(function() {  // when the page is loaded, call superslides function
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCisDdbOedUEQI9JSwzBFXzzgA1GRpLxyY",
+        authDomain: "portfolio-34235.firebaseapp.com",
+        databaseURL: "https://portfolio-34235.firebaseio.com",
+        projectId: "portfolio-34235",
+        storageBucket: "portfolio-34235.appspot.com",
+        messagingSenderId: "417783244082",
+        appId: "1:417783244082:web:4fa45b3298ce53be4fa32b",
+        measurementId: "G-R8M44J1FF8"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.performance();
+    const analytics = firebase.analytics();
+
     $('#slides').superslides({
         animation: 'fade',
         play: 4000,
@@ -186,6 +203,10 @@ $(document).ready(function() {  // when the page is loaded, call superslides fun
                     'quantity': 1
                 }
             ]
+        });
+
+        analytics.logEvent('ecommerce_purchase', {
+            currency: 3000, transaction_id: '1001'
         });
     });
 });
